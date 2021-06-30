@@ -14,7 +14,7 @@ class MainViewModel : ViewModel() {
         repository.getData()
     }
 
-    val observeData: LiveData<List<Album>>
+    val observeData: LiveData<List<Photo>>
         get() = repository.observeData
 
 }

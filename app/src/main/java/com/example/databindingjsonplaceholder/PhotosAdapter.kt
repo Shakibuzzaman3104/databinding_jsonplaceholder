@@ -7,9 +7,9 @@ import com.example.databindingjsonplaceholder.databinding.ItemPhotoBinding
 
 class PhotosAdapter : RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
 
-    private var photos: ArrayList<Album> = ArrayList()
+    private var photos: ArrayList<Photo> = ArrayList()
 
-    fun setData(photos: List<Album>) {
+    fun setData(photos: List<Photo>) {
         this.photos.clear()
         this.photos.addAll(photos)
     }
@@ -26,6 +26,8 @@ class PhotosAdapter : RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
         with(holder)
         {
             this.binding.photo = photos[position]
+            this.binding.position = position
+            this.binding.click=holder.binding.root.context as OnPhotoClickListener
         }
     }
 

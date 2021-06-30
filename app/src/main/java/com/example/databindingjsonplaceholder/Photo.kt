@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
 
 @Keep
-data class Album(
+data class Photo(
     @SerializedName("albumId")
     val albumId: Int,
     @SerializedName("id")

@@ -5,14 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="photo"
-            type="com.example.databindingjsonplaceholder.Album" />
+            type="com.example.databindingjsonplaceholder.Photo" />
+
+        <variable
+            name="click"
+            type="com.example.databindingjsonplaceholder.OnPhotoClickListener" />
+
+        <variable
+            name="position"
+            type="int" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:onClick="@{()->click.onClick(photo,position)}">
 
         <ImageView
             android:id="@+id/image"
@@ -21,16 +37,16 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:imageUrl="@{photo.url}"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:imageUrl="@{photo.url}" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="18sp"
             android:text="@{photo.title}"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/image"
             app:layout_constraintStart_toStartOf="@+id/image"
             app:layout_constraintTop_toBottomOf="@+id/image"

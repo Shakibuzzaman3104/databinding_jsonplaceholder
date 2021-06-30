@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 
 
 @BindingAdapter("photosList")
-fun setPhotos(recyclerView: RecyclerView, photos: List<Album>?) {
+fun setPhotos(recyclerView: RecyclerView, photos: List<Photo>?) {
     if (photos == null)
         return
     val layoutManager = recyclerView.layoutManager
