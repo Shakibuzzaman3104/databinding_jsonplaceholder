@@ -16,7 +16,13 @@ class AlbumRepository {
 
     private val data: MutableLiveData<List<Photo>> = MutableLiveData()
 
+    private val observeClick: MutableLiveData<Boolean> = MutableLiveData()
+
+    val clickObserve: LiveData<Boolean>
+        get() = observeClick
+
     fun getData() {
+        observeClick.postValue(true)
         apiClient.getPhotos().enqueue(object : Callback<List<Photo>> {
             override fun onResponse(
                 call: Call<List<Photo>>,
@@ -24,6 +30,7 @@ class AlbumRepository {
             ) {
                 Log.d(TAG, "Called")
                 data.value = response.body()
+                observeClick.postValue(false)
             }
 
             override fun onFailure(call: Call<List<Photo>>, t: Throwable) {
