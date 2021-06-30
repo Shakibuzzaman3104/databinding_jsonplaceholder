@@ -1,8 +1,10 @@
 package com.example.databindingjsonplaceholder
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 
 @BindingAdapter("photosList")
@@ -15,6 +17,13 @@ fun setPhotos(recyclerView: RecyclerView, photos: List<Album>?) {
     val adapter = PhotosAdapter()
     adapter.setData(photos)
     recyclerView.adapter = adapter
+}
+
+@BindingAdapter("imageUrl")
+fun setImage(image: ImageView, url: String) {
+    Glide.with(image.context)
+        .load("$url.png")
+        .into(image)
 }
 
 
