@@ -8,11 +8,11 @@
 
         <variable
             name="photo"
-            type="com.example.databindingjsonplaceholder.Photo" />
+            type="com.example.databindingjsonplaceholder.model.Photo" />
 
         <variable
             name="click"
-            type="com.example.databindingjsonplaceholder.OnPhotoClickListener" />
+            type="com.example.databindingjsonplaceholder.interfaces.OnPhotoClickListener" />
 
         <variable
             name="position"

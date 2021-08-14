@@ -1,10 +1,11 @@
-package com.example.databindingjsonplaceholder
+package com.example.databindingjsonplaceholder.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.databindingjsonplaceholder.model.Photo
 
 
 @BindingAdapter("photosList")

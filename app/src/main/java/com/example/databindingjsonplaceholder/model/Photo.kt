@@ -1,4 +1,4 @@
-package com.example.databindingjsonplaceholder
+package com.example.databindingjsonplaceholder.model
 
 
 import com.google.gson.annotations.SerializedName

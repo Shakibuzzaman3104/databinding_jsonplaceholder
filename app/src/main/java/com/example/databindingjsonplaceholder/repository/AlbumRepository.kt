@@ -1,16 +1,17 @@
-package com.example.databindingjsonplaceholder
+package com.example.databindingjsonplaceholder.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.databindingjsonplaceholder.ApiClient
+import com.example.databindingjsonplaceholder.model.Photo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
 
-class AlbumRepository {
-
-    val apiClient = RetrofitClient.getInstance().create(ApiClient::class.java)
+class AlbumRepository @Inject constructor(private val api:ApiClient) {
 
     private val TAG = javaClass.simpleName
 
@@ -23,7 +24,7 @@ class AlbumRepository {
 
     fun getData() {
         observeClick.postValue(true)
-        apiClient.getPhotos().enqueue(object : Callback<List<Photo>> {
+        api.getPhotos().enqueue(object : Callback<List<Photo>> {
             override fun onResponse(
                 call: Call<List<Photo>>,
                 response: Response<List<Photo>>
@@ -37,7 +38,6 @@ class AlbumRepository {
                 Log.d(TAG, "Called ${t.localizedMessage}")
 
             }
-
         })
     }
 

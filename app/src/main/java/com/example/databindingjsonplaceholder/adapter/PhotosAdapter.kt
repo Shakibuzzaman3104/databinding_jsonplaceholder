@@ -1,11 +1,14 @@
-package com.example.databindingjsonplaceholder
+package com.example.databindingjsonplaceholder.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.databindingjsonplaceholder.model.Photo
 import com.example.databindingjsonplaceholder.databinding.ItemPhotoBinding
+import com.example.databindingjsonplaceholder.interfaces.OnPhotoClickListener
+import javax.inject.Inject
 
-class PhotosAdapter : RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
+class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
 
     private var photos: ArrayList<Photo> = ArrayList()
 
